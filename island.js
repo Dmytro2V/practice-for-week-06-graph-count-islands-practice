@@ -1,16 +1,30 @@
 function getNeighbors(row, col, matrix) {
+  let adjNodes = [] // store all adjasent
   
+  
+  // First store than check  
+  // add all :
+
   // Check top
+  adjNodes.push([(row - 1), (col)])
   // Check top right
+  adjNodes.push([(row - 1), (col + 1)])
   // Check right
+  adjNodes.push([(row), (col + 1)])
   // Check bottom right
+  adjNodes.push([(row + 1), (col + 1)])
   // Check bottom
+  adjNodes.push([(row + 1), (col)])
   // Check bottom left
+  adjNodes.push([(row + 1), (col - 1)])
   // Check left
+  adjNodes.push([(row), (col - 1)])
   // Check top left
-  // Return neighbors
-  
-  // Your code here
+  adjNodes.push([(row - 1), (col - 1)]);
+
+  // Return neighbors, node row exist in matrix and node val = 1
+  return adjNodes.filter(nbor => matrix[nbor[0]] && matrix[nbor[0]][nbor[1]])
+
 }
 
 function countIslands(matrix) {
